@@ -1,4 +1,0 @@
-# Use Python 3.11 or 3.12. MediaPipe does not support Python 3.13/3.14 here.
-opencv-python>=4.10,<5
-mediapipe>=0.10.20,<0.10.31
-numpy>=1.26,<3
