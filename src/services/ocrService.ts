@@ -1,0 +1,2 @@
+import { createWorker } from 'tesseract.js';
+export async function scanImage(file:File,onProgress:(p:number,s:string)=>void){onProgress(8,'Preparing image…');const worker=await createWorker('eng',1,{logger:m=>{if(m.status==='recognizing text')onProgress(Math.round((m.progress||0)*85)+10,'Scanning product label…')}});const result=await worker.recognize(file);await worker.terminate();onProgress(100,'Extracting declarations…');return {text:result.data.text,confidence:result.data.confidence};}
